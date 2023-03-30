@@ -9,7 +9,7 @@
 import * as fs from "fs"
 
 interface Guest{
-    age: Number;
+    age: number;
     name: String;
     height: Number;
     weight?: Number;
@@ -19,6 +19,8 @@ interface Guest{
 // 例）let array: String[] = ["sss", "aa", 3]
 function callGuest(guests: Guest[]) {
     guests.forEach((guest) => {
+        guest.age = guest.age + 1
+
         console.log("年齢:" + guest.age)
         console.log("名前:" + guest.name)
     })
@@ -27,12 +29,8 @@ function callGuest(guests: Guest[]) {
 // 外部ファイルのデータを取得
 const guestsJson = fs.readFileSync("data.json");
 
-// const guests: Guest[] = JSON.parse(guestsJson.toString());
-const guests: Guest[] = [{
-    age: 22,
-    name: "String",
-    height: 176
-}]
+const guests: Guest[] = JSON.parse(guestsJson.toString());
+
 
 callGuest(guests)
 

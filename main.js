@@ -12,15 +12,12 @@ var fs = require("fs");
 // 例）let array: String[] = ["sss", "aa", 3]
 function callGuest(guests) {
     guests.forEach(function (guest) {
-        console.log(guest);
+        guest.age = guest.age + 1;
+        console.log("年齢:" + guest.age);
+        console.log("名前:" + guest.name);
     });
 }
 // 外部ファイルのデータを取得
 var guestsJson = fs.readFileSync("data.json");
-// const guests: Guest[] = JSON.parse(guestsJson.toString());
-var guests = [{
-        age: 22,
-        name: "String",
-        height: 176
-    }];
+var guests = JSON.parse(guestsJson.toString());
 callGuest(guests);
