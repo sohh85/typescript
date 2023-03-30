@@ -19,7 +19,8 @@ interface Guest{
 // 例）let array: String[] = ["sss", "aa", 3]
 function callGuest(guests: Guest[]) {
     guests.forEach((guest) => {
-        console.log(guest)
+        console.log("年齢:" + guest.age)
+        console.log("名前:" + guest.name)
     })
 }
 
